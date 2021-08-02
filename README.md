@@ -23,6 +23,7 @@
 
 
 ## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1zB255fz8Lla2_C_Vq-qYd4ZzeGK6GKUlG1hVuoTIg_c/edit#gid=0
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -31,5 +32,3 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-・未定
