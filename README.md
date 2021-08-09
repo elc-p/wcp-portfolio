@@ -36,6 +36,15 @@
 
 ## 設計書
 
+ER 図
+https://drive.google.com/file/d/14MbwLseRH5PgutCESjqCXwbqaeZEJKm6/view?usp=sharing
+
+テーブル定義書
+https://docs.google.com/spreadsheets/d/1zJ5V2fpJjSwDxadCSuYz_gAHe3E8IhNK__o_JpzHQew/edit?usp=sharing
+
+アプリケーション設計
+https://docs.google.com/spreadsheets/d/19lKvjfuTTleZByvzj-lgvs1nRAdysb72rNHP0eLO0Es/edit?usp=sharing
+
 ## チャレンジ要素一覧
 
 https://docs.google.com/spreadsheets/d/1zB255fz8Lla2_C_Vq-qYd4ZzeGK6GKUlG1hVuoTIg_c/edit#gid=0
