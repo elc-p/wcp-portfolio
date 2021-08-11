@@ -36,13 +36,13 @@
 
 ## 設計書
 
-ER 図
+ER 図<br>
 https://drive.google.com/file/d/14MbwLseRH5PgutCESjqCXwbqaeZEJKm6/view?usp=sharing
 
-テーブル定義書
+テーブル定義書<br>
 https://docs.google.com/spreadsheets/d/1zJ5V2fpJjSwDxadCSuYz_gAHe3E8IhNK__o_JpzHQew/edit?usp=sharing
 
-アプリケーション設計
+アプリケーション設計<br>
 https://docs.google.com/spreadsheets/d/19lKvjfuTTleZByvzj-lgvs1nRAdysb72rNHP0eLO0Es/edit?usp=sharing
 
 ## チャレンジ要素一覧
