@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title
+      | Torichan
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  
+  header
+    ul.navbar-nav
+      li.nav-item
+        = link_to "Topページ", root_path
+      li.nav-item
+        = link_to "新規登録", new_user_registration_path
+
+  body
+    == yield
