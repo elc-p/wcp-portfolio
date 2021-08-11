@@ -2,7 +2,7 @@ h2
   | Sign up
 
 = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
-  = render "devise/shared/error_messages", resource: resource
+  == render "devise/shared/error_messages", resource: resource
   
   div.field
     = f.label :name, "ニックネーム"
@@ -12,12 +12,12 @@ h2
   div.field
     = f.label :prefecture, "都道府県"
     br
-    = f.text_field :prefecture, autofocus: true, autocomplete: "name"
+    = f.text_field :prefecture, autofocus: true, autocomplete: "prefecture"
     
   div.field
     = f.label :cities, "市区町村"
     br
-    = f.text_field :cities, autofocus: true, autocomplete: "name"
+    = f.text_field :cities, autofocus: true, autocomplete: "cities"
 
   div.field
     = f.label :email, "メールアドレス"

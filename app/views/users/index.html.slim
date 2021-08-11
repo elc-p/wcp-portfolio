@@ -1,0 +1,9 @@
+h1
+  | ユーザー一覧
+br
+
+table
+  - @users.each do |user|
+    tr
+      td = attachment_image_tag user, :user_image, :fill, 50, 50, fallback: "no_image_square.jpeg", size:"50x50"
+      td = user.name
