@@ -15,12 +15,17 @@ html
         = link_to "Topページ", root_path
       li.nav-item
         = link_to "新規登録", new_user_registration_path
-      li.nav-item
-        = link_to "ユーザー一覧", users_path
+      
       li.nav-item
         =link_to "ログイン", new_user_session_path
       li.nav-item
         =link_to "ログアウト", destroy_user_session_path, method: :delete
-
+      - if user_signed_in?
+        li.nav-item
+          = link_to "Myページ", user_path(current_user)
+        li.nav-item
+          = link_to "ユーザー一覧", users_path
+        li.nav-item
+          = link_to "投稿一覧", posts_path
   body
     == yield

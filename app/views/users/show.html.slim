@@ -1,5 +1,7 @@
 h2
   | Myページ
+  
+= link_to "Myページ編集", edit_user_path(@user)
 
 h5
   | 投稿フォーム
@@ -17,3 +19,5 @@ br
   p
     | ユーザー
     = post.user.name
+  br
+  = link_to "削除", post_path(post.id), method: :delete

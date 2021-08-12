@@ -1,0 +1,15 @@
+h1
+  | 投稿詳細
+  
+p
+  | 投稿画像
+= attachment_image_tag @post, :post_image, :fill, 50, 50
+
+p
+  | 説明
+= @post.body
+
+h3
+ | コメント
+
+== render 'post_comments/comment', post: @post, post_comment: @post_comment

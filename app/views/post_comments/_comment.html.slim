@@ -1,0 +1,7 @@
+div.commentbox
+  == render 'post_comments/index', post: @post
+
+= form_with model:[post, post_comment], local: true do |f|
+  = f.text_area :comment, size:"90x5"
+  br
+  = f.submit "送信"
