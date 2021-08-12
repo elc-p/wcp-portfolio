@@ -1,0 +1,19 @@
+h2
+  | Myページ
+
+h5
+  | 投稿フォーム
+== render 'posts/form', post: @post
+
+br
+
+- @posts.each do |post|
+  = attachment_image_tag post, :post_image
+  br
+  p
+    | 説明
+    = post.body
+  br
+  p
+    | ユーザー
+    = post.user.name
