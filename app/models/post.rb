@@ -5,8 +5,8 @@ class Post < ApplicationRecord
 
   has_many :post_comments, dependent: :destroy
   has_many :favorites
-  has_many :taggings
-  has_many :tags, through: :tagging
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
 
   def favorited_by?(user)

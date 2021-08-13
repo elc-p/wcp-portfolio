@@ -37,6 +37,12 @@ class PostsController < ApplicationController
     redirect_to request.referer
   end
   
+  def search
+    @tag = Tag.find(params[:tag_id])
+    @posts = @tag.posts
+  end
+  
+  
   private
   
   def post_params
