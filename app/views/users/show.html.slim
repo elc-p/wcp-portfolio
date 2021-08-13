@@ -15,8 +15,10 @@ br
   
   p
     | タグ
-  -post.taggings.each do |tag|
-    p #{tag.tag.category}
+
+  - post.taggings.each do |tag|
+      = link_to tag_posts_path(tag_id: tag.tag.id) do
+        p #{tag.tag.category}
   
   p
     | 説明
