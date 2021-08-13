@@ -15,8 +15,8 @@ br
   
   p
     | タグ
-  -post.tagging.each do |tag|
-    p #{Tag.find(tag.tag_id).category}
+  -post.taggings.each do |tag|
+    p #{tag.tag.category}
   
   p
     | 説明
