@@ -9,4 +9,4 @@
       
       td = post_comment.comment
       td 
-        = link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete
+        = link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), remote: true, method: :delete
