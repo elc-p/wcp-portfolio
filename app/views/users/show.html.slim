@@ -12,6 +12,12 @@ br
 - @posts.each do |post|
   = attachment_image_tag post, :post_image
   br
+  
+  p
+    | タグ
+  -post.tagging.each do |tag|
+    p #{Tag.find(tag.tag_id).category}
+  
   p
     | 説明
     = post.body

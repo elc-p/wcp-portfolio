@@ -8,6 +8,13 @@ p
 p
   | 説明
 = @post.body
+br
+
+p
+  |タグ
+- @post.tagging.each do |tag|
+  p #{Tag.find(tag.tag_id).category}
+
 
 h3
  | コメント

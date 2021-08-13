@@ -18,9 +18,17 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.tag_id = 1
-    @post.save
-    redirect_to 
+    tag_list = params[:post][:category].split(nil)
+    if @post.save
+      @post.save_tag(@post, tag_list)
+      tag_list.each do |tag_name|
+        tag = Tag.find_by(category: tag_name)
+        Tagging.create(post_id: @post.id, tag_id: tag.id)
+      end
+      redirect_to request.referer
+    else
+      redirect_to request.referer
+    end
   end
   
   def destroy
