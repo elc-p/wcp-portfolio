@@ -17,7 +17,8 @@ class Post < ApplicationRecord
     sent_tags.each do |tag|
       unless Tag.find_by(category: tag)
         Tag.create(category: tag)
-        Tagging.create(post_id: post.id, tag_id: tag.id)
+        new_tag = Tag.find_by(category: tag)
+        Tagging.create(post_id: post.id, tag_id: new_tag.id)
       else
         exist_tag = Tag.find_by(category: tag)
         Tagging.create(post_id: post.id, tag_id: exist_tag.id)
