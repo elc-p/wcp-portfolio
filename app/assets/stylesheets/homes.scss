@@ -1,3 +1,32 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top {
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-back {
+  background-image: url(sky.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#about {
+  height: 600px;
+}
+
+.aboutimage1 {
+  background-image: url(bird1.jpeg);
+}
+
+.aboutimage2 {
+  background-image: url(bird2.jpeg);
+}
+
+.aboutimage3 {
+  background-image: url(bird3.jpeg);
+}
