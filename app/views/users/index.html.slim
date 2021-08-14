@@ -4,21 +4,18 @@ br
 
 table
   - @users.each do |user|
-    tr
+    tr id='user_#{ user.id }'
       td = attachment_image_tag user, :user_image, :fill, 50, 50, fallback: "no_image_square.jpeg", size:"50x50"
       td = user.name
-      td 
+      td id='user_#{ user.id }_follow'
         | フォロー数#{user.followings.count}
       
-      td
+      td id='user_#{ user.id }_follower'
         | フォロワー数#{user.followers.count}
 
       - if user.id == current_user.id
         td
       - else
-        td
-          - if current_user.following?(user)
-            = link_to "フォロー解除", user_relationships_path(user.id), method: :delete
-          -else
-            = link_to "フォロー", user_relationships_path(user.id), method: :post
+        td id='user_#{ user.id }_follow-btn'
+          == render 'users/follow', user: user
       

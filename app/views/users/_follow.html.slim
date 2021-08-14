@@ -1,0 +1,4 @@
+- if current_user.following?(user)
+    = link_to "フォロー解除", user_relationships_path(user.id), remote: true, method: :delete
+-else
+    = link_to "フォロー", user_relationships_path(user.id), remote: true, method: :post
