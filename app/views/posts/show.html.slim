@@ -1,0 +1,24 @@
+h1
+  | 投稿詳細
+  
+p
+  | 投稿画像
+= attachment_image_tag @post, :post_image, :fill, 50, 50
+
+p
+  | 説明
+= @post.body
+br
+
+p
+  |タグ
+- @post.taggings.each do |tag|
+  = link_to tag_posts_path(tag_id: tag.tag.id) do
+    p #{tag.tag.category}
+
+
+h3
+ | コメント
+
+div.comment
+  == render 'post_comments/comment', post: @post, post_comment: @post_comment

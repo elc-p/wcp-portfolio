@@ -1,3 +1,83 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top {
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-back {
+  background-image: url(sky.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#aboutheader {
+  height: 60px;
+}
+
+#about {
+  width: 100vw;
+  height: 100vh;
+}
+
+.aboutimage1 {
+  background-image: url(bird1.jpeg);
+}
+
+.aboutimage2 {
+  background-image: url(bird2.jpeg);
+}
+
+.aboutimage3 {
+  background-image: url(bird3.jpeg);
+}
+
+#splash {
+/*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background:#333;
+  text-align:center;
+  color:#fff;
+}
+
+/* Loading画像中央配置　*/
+#splash_logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fadeUp{
+animation-name: fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+
+.logosize {
+  width: 300px;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+.link_height {
+  padding-top: 50vh;
+}

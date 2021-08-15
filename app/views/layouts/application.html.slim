@@ -9,18 +9,27 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   
-  header
-    ul.navbar-nav
-      li.nav-item
-        = link_to "Topページ", root_path
-      li.nav-item
-        = link_to "新規登録", new_user_registration_path
-      li.nav-item
-        = link_to "ユーザー一覧", users_path
-      li.nav-item
-        =link_to "ログイン", new_user_session_path
-      li.nav-item
-        =link_to "ログアウト", destroy_user_session_path, method: :delete
-
+  header.fixed-top
+    nav.navbar.navbar-expand-lg
+      ul.navbar-nav.me-auto
+        - if user_signed_in?
+          li.nav-item.ml-3
+            = link_to "Myページ", user_path(current_user)
+          li.nav-item
+            = link_to "ユーザー一覧", users_path
+          li.nav-item
+            = link_to "投稿一覧", posts_path
+          li.nav-item
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          li.nav-item.ml-3
+            = link_to "Topページ", root_path
+          li.nav-item.ml-3
+            = link_to "新規登録", new_user_registration_path
+          li.nav-item.ml-3
+            =link_to "ログイン", new_user_session_path
+          
+        
   body
     == yield
+

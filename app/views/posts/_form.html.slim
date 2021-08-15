@@ -1,10 +1,22 @@
 = form_with model:post, local: true do |f|
   h4
     | 画像
-  =f.attachment_field :post_image
+  = f.attachment_field :post_image
+  
+  h4
+    | 都道府県
+  = f.text_field :prefecture
+  
+  h4
+    | 市区町村
+  = f.text_field :cities
+  
+  h4
+    | タグ
+  = f.text_field :category
   
   h4
     | 説明
-  =f.text_area :body
+  = f.text_area :body
   br
-  =f.submit "投稿"
+  = f.submit "投稿"

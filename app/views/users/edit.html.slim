@@ -1,0 +1,8 @@
+= form_with model: @user, local: true do |f|
+  = f.label :user_image
+  = f.attachment_field :user_image
+  br
+  = f.label :name
+  = f.text_field :name
+  br
+  = f.submit
