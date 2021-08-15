@@ -1,31 +1,29 @@
-h2
-  | Myページ
-  
-= link_to "Myページ編集", edit_user_path(@user)
+div.container.px-5.px-sm-0
+  div.row
+    div.col-md-3
+        h2
+          | Myページ
+          
+        = link_to edit_user_path(@user)
+          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
+        
+        h5
+          | 投稿フォーム
+        == render 'posts/form', post: @post
+    
+    div.col-md-8.offset-md-1.text-center
+      - @posts.each do |post|
+        div.card
+          = link_to post_path(post)
+            = attachment_image_tag post, :post_image,  class: "card-img"
+          = link_to "削除", post_path(post.id), method: :delete, class: "card-img-overlay"
+          br
+          
+          span.card-title.user-span
+            - post.taggings.each do |tag|
+              = link_to tag_posts_path(tag_id: tag.tag.id), class: "btn btn-sm btn-secondary user-tag-link"
+                p.usershowtag 
+                  | #{tag.tag.category}
+          p
+            = post.body
 
-h5
-  | 投稿フォーム
-== render 'posts/form', post: @post
-
-br
-
-- @posts.each do |post|
-  = attachment_image_tag post, :post_image
-  br
-  
-  p
-    | タグ
-
-  - post.taggings.each do |tag|
-      = link_to tag_posts_path(tag_id: tag.tag.id) do
-        p #{tag.tag.category}
-  
-  p
-    | 説明
-    = post.body
-  br
-  p
-    | ユーザー
-    = post.user.name
-  br
-  = link_to "削除", post_path(post.id), method: :delete

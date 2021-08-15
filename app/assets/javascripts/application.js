@@ -42,3 +42,21 @@ $(document).ready(function () {
     hidePrevious : false
   });
 });
+
+
+var option = {
+  section : '.top-section',
+  easing: "swing",
+  scrollSpeed: 600,
+  scrollbars: true
+}
+
+jQuery(function() {
+  $.scrollify(option);
+});
+
+$(window).on('load',function(){
+  $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+  $("#splash_logo").delay(1200).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
+});
+

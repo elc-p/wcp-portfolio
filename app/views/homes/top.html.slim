@@ -1,7 +1,16 @@
-div.top.top-back
+div#splash
+  div#splash_logo
+    = image_tag("logo-2.png",class: "fadeUp logosize")
 
-div#about.about-back
-  div#aboutimages
-    div.aboutimage1
-    div.aboutimage2
-    div.aboutimage3
+section.top-section data-section-name="section1"
+  div.top.top-back
+    div.d-flex.align-items-center.justify-content-center.link_height
+      = link_to "新規登録", new_user_registration_path, class: "btn btn-info btn-lg"
+
+section.top-section data-section-name="section2"
+  div#aboutheader
+  div#about.about-back
+    div#aboutimages
+      div.aboutimage1
+      div.aboutimage2
+      div.aboutimage3
