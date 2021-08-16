@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
+    @post = Post.new
+    @user = current_user
   end
   
   def show
