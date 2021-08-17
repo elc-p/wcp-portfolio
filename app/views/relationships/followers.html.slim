@@ -2,14 +2,15 @@ div.container.px-5.px-sm-0
   div.row
     div.col-md-3
         h2
-          | ユーザー一覧
+          | #{ @user.name }ページ
 
         = link_to edit_user_path(@user)
           = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
 
-        h5
-          | 投稿フォーム
-        == render 'posts/form', post: @post, user: @user
+        - if @user == current_user
+            h5
+              | 投稿フォーム
+            == render 'posts/form', post: @post, user: @user
 
     div.col-md-9
       div.row
@@ -33,5 +34,3 @@ div.container.px-5.px-sm-0
                   = link_to user_followers_path(user.id)
                     p id='user_#{ user.id }_follower'
                       | フォロワー数#{user.followers.count}
-
-

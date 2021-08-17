@@ -10,7 +10,7 @@ div.container.px-5.px-sm-0
         - if @user == current_user
             h5
               | 投稿フォーム
-            == render 'posts/form', post: @post
+            == render 'posts/form', post: @post, user: @user
 
     div.col-md-8.offset-md-1.text-center.user-post-index
       - @posts.each do |post|

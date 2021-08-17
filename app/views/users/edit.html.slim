@@ -1,8 +1,11 @@
-= form_with model: @user, local: true do |f|
-  = f.label :user_image
-  = f.attachment_field :user_image
-  br
-  = f.label :name
-  = f.text_field :name
-  br
-  = f.submit "更新"
+div.row
+  div.mx-auto
+    = form_with model: @user, local: true do |f|
+      = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
+      br
+      = f.attachment_field :user_image
+      br
+      = f.label :name
+      = f.text_field :name
+      br
+      = f.submit "更新"

@@ -40,6 +40,7 @@ class PostsController < ApplicationController
   end
   
   def search
+    @user = current_user
     @tag = Tag.find(params[:tag_id])
     @posts = @tag.posts
   end
