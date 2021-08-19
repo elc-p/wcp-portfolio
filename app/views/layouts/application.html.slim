@@ -8,13 +8,15 @@ html
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  
+
   header.fixed-top
     nav.navbar.navbar-expand-lg
       ul.navbar-nav.me-auto
         - if user_signed_in?
           li.nav-item.ml-3
             = link_to "Myページ", user_path(current_user)
+          li.nav-item
+            = link_to "地域検索", areas_path
           li.nav-item
             = link_to "ユーザー一覧", users_path
           li.nav-item
@@ -28,8 +30,8 @@ html
             = link_to "新規登録", new_user_registration_path
           li.nav-item.ml-3
             =link_to "ログイン", new_user_session_path
-          
-        
+
+
   body
     == yield
 

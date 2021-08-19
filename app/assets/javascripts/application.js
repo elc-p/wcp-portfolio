@@ -62,3 +62,6 @@ $(window).on('load',function(){
   $("#splash_logo").delay(1200).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
 });
 
+document.addEventListener("turbolinks:load", function() {
+  $('img[usemap]').rwdImageMaps();
+});

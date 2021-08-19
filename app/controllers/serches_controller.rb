@@ -1,2 +1,0 @@
-class SerchesController < ApplicationController
-end

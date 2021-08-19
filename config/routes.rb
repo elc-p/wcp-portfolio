@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   resources :tag do
     get 'posts', to: 'posts#search'
   end
+  
+  resources :areas
+  get 'search_city/:id', to: 'areas#search', as: :search_city
 
 end
