@@ -1,0 +1,8 @@
+div.row
+  - @result.each do |post|
+      div.col-md-4
+        div.card.post-index
+          = link_to post_path(post)
+            = attachment_image_tag post, :post_image, class: "card-img"
+          span id='favorite-#{post.id}'
+            == render "favorites/favorite", post: post

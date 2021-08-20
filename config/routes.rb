@@ -27,5 +27,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+  
+  get 'searches' => 'searches#search'
 
 end
