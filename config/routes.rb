@@ -23,5 +23,9 @@ Rails.application.routes.draw do
 
   resources :areas
   get 'search_city/:id', to: 'areas#search', as: :search_city
+  
+  namespace :admin do
+    resources :users
+  end
 
 end

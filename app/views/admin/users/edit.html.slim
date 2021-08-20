@@ -1,0 +1,51 @@
+div.cintainer.mt-5
+  div.row
+    div.col-md-12
+      h2
+        | 会員情報編集
+
+      = form_with model: @user, url: admin_user_path(@user), local: true do |f|
+        table
+          tr
+            td
+              p 会員ID
+            td
+              p #{@user.id}
+
+          tr
+            td
+              p ニックネーム
+            td
+              p #{@user.name}
+
+          tr
+            td
+              p email
+            td
+              p #{@user.email}
+
+          tr
+            td
+              p 都道府県
+            td
+              p #{@user.prefecture}
+
+          tr
+            td
+              p 市区町村
+            td
+              p #{@user.cities}
+
+          tr
+            td
+              p 会員ステータス
+            td
+              = f.radio_button :status, :false
+              = f.label :status, '有効'
+              = f.radio_button :status, :true
+              = f.label :status, '退会'
+
+          tr
+            td
+            td
+              = f.submit '保存', class: "btn btn-success"

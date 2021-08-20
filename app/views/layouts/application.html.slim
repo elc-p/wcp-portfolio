@@ -3,13 +3,14 @@ html
   head
     title
       | Torichan
+      
     = csrf_meta_tags
     = csp_meta_tag
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  header.fixed-top
+  header
     nav.navbar.navbar-expand-lg
       ul.navbar-nav.me-auto
         - if user_signed_in?
