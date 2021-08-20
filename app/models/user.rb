@@ -26,6 +26,10 @@ class User < ApplicationRecord
     relationships.find_by(followed_id: user_id).destroy
   end
   
+  def active_for_authentication?
+    super && self.status == false
+  end
+  
 
   attachment :user_image
 end
