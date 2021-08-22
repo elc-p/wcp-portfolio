@@ -56,3 +56,6 @@ https://docs.google.com/spreadsheets/d/1zB255fz8Lla2_C_Vq-qYd4ZzeGK6GKUlG1hVuoTI
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+- O-DAN

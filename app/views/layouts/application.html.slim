@@ -13,19 +13,20 @@ html
   header
     - if user_signed_in?
       nav.navbar.navbar-expand-lg
-        ul.navbar-nav.me-auto
-          li.nav-item.ml-3
+        ul.navbar-nav.mr-auto
+          li.nav-item.ml-3.mr-3
             = link_to "Myページ", user_path(current_user)
-          li.nav-item
+          li.nav-item.mr-3
             = link_to "地域検索", areas_path
-          li.nav-item
+          li.nav-item.mr-3
             = link_to "ユーザー一覧", users_path
-          li.nav-item
+          li.nav-item.mr-3
             = link_to "投稿一覧", posts_path
-          li.nav-item
+          li.nav-item.mr3
             =link_to "ログアウト", destroy_user_session_path, method: :delete
+        ul.navbar-nav
           li.nav-item
-            = form_with url: searches_path, method: :get, class: "navbar-nav ml-auto", local: true do |f|
+            = form_with url: searches_path, method: :get, class: "navbar-nav", local: true do |f|
               = f.text_field :word, placeholder: "\uF002", class: "fa seachicon"
 
     - else
