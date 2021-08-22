@@ -2,11 +2,11 @@
   table
     tr
       td
-        = link_to user_path(post_comment.user) do
-          = attachment_image_tag post_comment.user, :user_image, :fill, 50, 50, fallback: "no_image_square.jpeg", size:"50x50"
+        p.indent
+          | 名前:#{post_comment.user.name} --#{post_comment.created_at.to_s(:datetime_jp)}
+          
+          = link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), remote: true, method: :delete
           br
-          = post_comment.user.name
-      
-      td = post_comment.comment
-      td 
-        = link_to "削除", post_post_comment_path(post_comment.post_id, post_comment.id), remote: true, method: :delete
+          
+          = post_comment.comment
+          

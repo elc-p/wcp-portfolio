@@ -1,50 +1,56 @@
-h2
-  | Edit
-  = resource_name.to_s.humanize
+div.container.px-5.px-sm-0
+  div.row
+    div.col-md-3
+    div.col-md-6
+      = form_with model: @user, local: true do |f|
+          div.card
+            = attachment_image_tag @user, :user_image, fallback: "no_image_square.jpeg", size:"100x100", class: "card-img edit-user-img"
+          div.card-body
+            div.card-text
+              div.row
+                div.col-md-3.text-right
+                  | 画像
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  == render "devise/shared/error_messages", resource: resource
+                div.col-md-3
+                  = f.attachment_field :user_image
+                div.col-md-3
+                div.col-md-3
 
-  div.field
-    = f.label :email <br />
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+              div.row
+                div.col-md-3.text-right
+                  = f.label :name
+                div.col-md-3
+                  = f.text_field :name
+                div.col-md-3
+                div.col-md-3
 
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for:
-      = resource.unconfirmed_email
+              div.row
+                div.col-md-3.text-left
+                  button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"
+                    | 退会
 
-  div.field
-    = f.label :password
-      i
-        | (leave blank if you don't want to change it)
-        <br>
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      <br />
-      em
-        = @minimum_password_length
-        | characters minimum
+                div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+                  div class="modal-dialog modal-dialog-centered" role="document"
+                    div class="modal-content"
+                      div class="modal-header"
+                        h5 class="modal-title" id="exampleModalCenterTitle"
+                          | 退会意思確認
 
-  div.field
-    = f.label :password_confirmation <br />
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+                        button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                          span aria-hidden="true"&times;
+                      div class="modal-body"
+                        | 退会処理をしてよろしいですか?
 
-  div.field
-    = f.label :current_password
-      i
-        | (we need your current password to confirm your changes)
-      br
-    = f.password_field :current_password, autocomplete: "current-password"
+                      div class="modal-footer"
+                        button type="button" class="btn btn-secondary" data-dismiss="modal"
+                          | Close
 
-  div.actions
-    = f.submit "Update"
+                        button type="button" class="btn btn-danger"
+                          = link_to "退会する", user_withdrawal_path(@user), method: :patch
 
-h3
-  | Cancel my account
+                div.col-md-3
+                div.col-md-3
+                div.col-md-3.text-right
+                  = f.submit "更新", class: "btn btn-success"
 
-p
-  | Unhappy?
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-
-= link_to "Back", :back
+    div.col-md-3

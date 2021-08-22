@@ -1,21 +1,37 @@
-h1
-  | ユーザー一覧
-br
+div.container.px-5.px-sm-0
+  div.row
+    div.col-md-3
+        h2
+          | ユーザー一覧
 
-table
-  - @users.each do |user|
-    tr id='user_#{ user.id }'
-      td = attachment_image_tag user, :user_image, :fill, 50, 50, fallback: "no_image_square.jpeg", size:"50x50"
-      td = user.name
-      td id='user_#{ user.id }_follow'
-        | フォロー数#{user.followings.count}
-      
-      td id='user_#{ user.id }_follower'
-        | フォロワー数#{user.followers.count}
+        = link_to edit_user_path(@user)
+          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
 
-      - if user.id == current_user.id
-        td
-      - else
-        td id='user_#{ user.id }_follow-btn'
-          == render 'users/follow', user: user
-      
+        h5
+          | 投稿フォーム
+        == render 'posts/form', post: @post, user: @user
+
+    div.col-md-9
+      div.row
+        - @users.each do |user|
+            div.col-md-4
+              div.card.user-show-img.h-100 id='user_#{ user.id }'
+                = link_to user_path(user)
+                  = attachment_image_tag user, :user_image,  fallback: "no_image_square.jpeg", class: "card-img user-img-h"
+                span.user-follow
+                  - if user.id == current_user.id
+                  - else
+                    p id='user_#{ user.id }_follow-btn'
+                      == render 'users/follow', user: user
+                span.card-title
+                  = user.name
+                span.card-text
+                  = link_to user_followings_path(user.id)
+                    p id='user_#{ user.id }_follow'
+                      | フォロー数#{user.followings.count}
+
+                  = link_to user_followers_path(user.id)
+                    p id='user_#{ user.id }_follower'
+                      | フォロワー数#{user.followers.count}
+
+

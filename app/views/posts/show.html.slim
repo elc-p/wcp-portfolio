@@ -1,24 +1,36 @@
-h1
-  | 投稿詳細
-  
-p
-  | 投稿画像
-= attachment_image_tag @post, :post_image, :fill, 50, 50
+div.container.px-5.px-sm-0
+  div.row
+    div.col-md-3
+        h2
+          | 投稿詳細
 
-p
-  | 説明
-= @post.body
-br
+        = link_to edit_user_path(@user)
+          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
+          
+        
+            
 
-p
-  |タグ
-- @post.taggings.each do |tag|
-  = link_to tag_posts_path(tag_id: tag.tag.id) do
-    p #{tag.tag.category}
+    div.col-md-8.offset-md-1.text-center.post-show
+      div.card.user-show-img
+        = attachment_image_tag @post, :post_image, class: "card-img"
+        div.dropdown.user-show-del
+             span class="fas fa-ellipsis-h"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"
+             ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+               li
+                 = link_to "削除", post_path(@post.id), method: :delete, class: "dropdown-item"
+        span.card-title.user-span
+          - @post.taggings.each do |tag|
+              = link_to tag_posts_path(tag_id: tag.tag.id), class: "btn btn-sm btn-secondary user-tag-link"
+                p.usershowtag
+                  | #{tag.tag.category}
+
+        = @post.body
+        
+      div.comment
+            == render 'post_comments/comment', post: @post, post_comment: @post_comment
 
 
-h3
- | コメント
 
-div.comment
-  == render 'post_comments/comment', post: @post, post_comment: @post_comment
+
+
+

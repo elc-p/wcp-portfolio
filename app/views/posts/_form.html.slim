@@ -5,11 +5,11 @@
   
   h4
     | 都道府県
-  = f.text_field :prefecture
+  = f.text_field :prefecture, value: user.prefecture
   
   h4
     | 市区町村
-  = f.text_field :cities
+  = f.text_field :cities, value: user.cities
   
   h4
     | タグ

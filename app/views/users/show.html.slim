@@ -3,26 +3,32 @@ div.container.px-5.px-sm-0
     div.col-md-3
         h2
           | Myページ
-          
-        = link_to edit_user_path(@user)
+
+        = link_to edit_user_registration_path
           = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
-        
-        h5
-          | 投稿フォーム
-        == render 'posts/form', post: @post
-    
-    div.col-md-8.offset-md-1.text-center
+
+        - if @user == current_user
+            h5
+              | 投稿フォーム
+            == render 'posts/form', post: @post, user: @user
+
+    div.col-md-8.offset-md-1.text-center.user-post-index
       - @posts.each do |post|
-        div.card
+        div.card.user-show-img
           = link_to post_path(post)
             = attachment_image_tag post, :post_image,  class: "card-img"
-          = link_to "削除", post_path(post.id), method: :delete, class: "card-img-overlay"
+          div.dropdown.user-show-del
+            span class="fas fa-ellipsis-h"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"
+            ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+              li
+                = link_to "削除", post_path(post.id), method: :delete, class: "dropdown-item"
+
           br
-          
+
           span.card-title.user-span
             - post.taggings.each do |tag|
               = link_to tag_posts_path(tag_id: tag.tag.id), class: "btn btn-sm btn-secondary user-tag-link"
-                p.usershowtag 
+                p.usershowtag
                   | #{tag.tag.category}
           p
             = post.body

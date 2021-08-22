@@ -3,33 +3,42 @@ html
   head
     title
       | Torichan
+
     = csrf_meta_tags
     = csp_meta_tag
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  
-  header.fixed-top
-    nav.navbar.navbar-expand-lg
-      ul.navbar-nav.me-auto
-        - if user_signed_in?
+
+  header
+    - if user_signed_in?
+      nav.navbar.navbar-expand-lg
+        ul.navbar-nav.me-auto
           li.nav-item.ml-3
             = link_to "Myページ", user_path(current_user)
+          li.nav-item
+            = link_to "地域検索", areas_path
           li.nav-item
             = link_to "ユーザー一覧", users_path
           li.nav-item
             = link_to "投稿一覧", posts_path
           li.nav-item
             =link_to "ログアウト", destroy_user_session_path, method: :delete
-        - else
+          li.nav-item
+            = form_with url: searches_path, method: :get, class: "navbar-nav ml-auto", local: true do |f|
+              = f.text_field :word, placeholder: "\uF002", class: "fa seachicon"
+
+    - else
+      nav.navbar.navbar-expand-lg
+        ul.navbar-nav.me-auto
           li.nav-item.ml-3
             = link_to "Topページ", root_path
           li.nav-item.ml-3
             = link_to "新規登録", new_user_registration_path
           li.nav-item.ml-3
             =link_to "ログイン", new_user_session_path
-          
-        
+
+
   body
     == yield
 
