@@ -25,5 +25,9 @@ class Post < ApplicationRecord
       end
     end
   end
+  
+  validates :prefecture, presence: true
+  validates :cities, presence: true
+  validates :body, presence: true, length: {maximum: 200}
 
 end

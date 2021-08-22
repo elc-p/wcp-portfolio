@@ -31,5 +31,6 @@ class User < ApplicationRecord
   end
   
 
-  attachment :user_image
+  attachment :user_image, destroy: false
+  validates :name, length: {maximum: 30, minimum: 2}, uniqueness: true
 end
