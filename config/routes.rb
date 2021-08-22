@@ -4,28 +4,28 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users do
+  resources :users, only: [:show, :index, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
     patch 'withdrawal' => 'users#withdrawal'
   end
 
-  resources :posts do
+  resources :posts, only: [:index, :show, :create, :destroy] do
     resources :post_comments
 
     resource :favorites, only: [:create, :destroy]
   end
 
-  resources :tag do
+  resources :tag, only: [] do
     get 'posts', to: 'posts#search'
   end
 
-  resources :areas
+  resources :areas, only: [:index, :show]
   get 'search_city/:id', to: 'areas#search', as: :search_city
   
   namespace :admin do
-    resources :users
+    resources :users, only: [:index, :edit, :update]
   end
   
   get 'searches' => 'searches#search'
