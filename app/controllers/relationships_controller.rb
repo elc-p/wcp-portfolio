@@ -1,5 +1,6 @@
 class RelationshipsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def create
     @user = current_user
     @another_user = User.find(params[:user_id])
