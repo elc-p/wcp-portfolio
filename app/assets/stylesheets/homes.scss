@@ -8,7 +8,7 @@
 }
 
 .top-back {
-  background-image: image-url(sky.jpg);
+  background-image: image-url("sky.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -22,15 +22,15 @@
 }
 
 .aboutimage1 {
-  background-image: image-url(bird1.jpg);
+  background-image: image-url("bird1.jpg");
 }
 
 .aboutimage2 {
-  background-image: image-url(bird2.jpg);
+  background-image: image-url("bird2.jpg");
 }
 
 .aboutimage3 {
-  background-image: image-url(bird3.jpg);
+  background-image: image-url("bird3.jpg");
 }
 
 #splash {
