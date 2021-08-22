@@ -17,7 +17,7 @@ div.container.px-5.px-sm-0
             div.col-md-4
               div.card.user-show-img.h-100 id='user_#{ user.id }'
                 = link_to user_path(user)
-                  = attachment_image_tag user, :user_image,  fallback: "no_image_square.jpeg", class: "card-img user-img-h"
+                  = attachment_image_tag user, :user_image,  fallback: "no_image_square.jpg", class: "card-img user-img-h"
                 span.user-follow
                   - if user.id == current_user.id
                   - else
