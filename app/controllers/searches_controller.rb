@@ -57,12 +57,19 @@ class SearchesController < ApplicationController
       unless lookbyPost(searchwords) == []
         @result += lookbyPost(searchwords)
       end
+      
     end
-
+    @result = @result.uniq
     p "==================="
-    p "結果確認"
+    p "結果確認@result"
     p @result
     p "==================="
+    
+    p "==================="
+    p "結果確認@result.uniq"
+    p @result.uniq
+    p "==================="
+
 
   end
 
