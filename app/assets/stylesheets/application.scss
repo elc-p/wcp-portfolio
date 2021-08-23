@@ -33,3 +33,19 @@
 .heard_blue {
  color: blue;
 }
+
+
+.form-group {
+ .field_with_errors {
+  display: contents;
+  }
+}
+
+.field_with_errors {
+ label {
+  color: red;
+ }
+ input {
+  border: 1px solid red;
+ }
+}

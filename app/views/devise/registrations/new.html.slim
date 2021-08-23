@@ -3,35 +3,29 @@ div.mx-auto.text-center
     | Sign up
   = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
     == render "devise/shared/error_messages", resource: resource
-    div.field
-      = f.label :name, "ニックネーム"
-      br
-      = f.text_field :name, autofocus: true, autocomplete: "name"
-    div.field
-      = f.label :prefecture, "都道府県"
-      br
-      = f.text_field :prefecture, autofocus: true, autocomplete: "prefecture"
-    div.field
-      = f.label :cities, "市区町村"
-      br
-      = f.text_field :cities, autofocus: true, autocomplete: "cities"
-    div.field
-      = f.label :email, "メールアドレス"
-      br
-      = f.email_field :email, autofocus: true, autocomplete: "email"
-    div.field
-      = f.label :password, "パスワード"
-      - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  文字以上)
-      <br />
-      = f.password_field :password, autocomplete: "new-password"
-    div.field
-      = f.label :password_confirmation, "パスワード(確認用)"
-      br
-      = f.password_field :password_confirmation, autocomplete: "new-password"
-    div.actions
-      = f.submit "Sign up"
-  == render "devise/shared/links"
+    div.field.form-group.row
+      div.col-12.mx-auto
+        = f.label :name, "ニックネーム", class: "col-sm-2"
+        = f.text_field :name, autofocus: true, autocomplete: "name", class: "col-sm-3"
+    div.field.form-group.row
+      div.col-12.mx-auto
+        = f.label :prefecture, "都道府県", class: "col-sm-2"
+        = f.text_field :prefecture, autofocus: true, autocomplete: "prefecture", class: "col-sm-3"
+    div.field.form-group.row
+      div.col-12.mx-auto
+        = f.label :cities, "市区町村", class: "col-sm-2"
+        = f.text_field :cities, autofocus: true, autocomplete: "cities", class: "col-sm-3"
+    div.field.form-group.row
+      div.col-12.mx-auto
+        = f.label :email, "メールアドレス", class: "col-sm-2"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-3"
+    div.field.form-group.row
+      div.col-12.mx-auto
+        = f.label :password, "パスワード", class: "col-sm-2"
+        = f.password_field :password, autocomplete: "new-password", class: "col-sm-3"
+    div.field.form-group.row
+      div.col-12.mx-auto
+        = f.label :password_confirmation, "パスワード(確認用)", class: "col-sm-2"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-3"
+    = f.submit "Sign up"
+    == render "devise/shared/links"
