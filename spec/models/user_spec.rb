@@ -23,5 +23,17 @@ describe User do
     user.valid?
     expect(user.errors[:cities]).to include("can't be blank")
   end
+  
+  it "メールアドレスを空欄にすると無効" do
+    user = FactoryBot.build(:user, email: nil)
+    user.valid?
+    expect(user.errors[:email]).to include("can't be blank")
+  end
+  
+  it "パスワードを空欄にすると無効" do
+    user = FactoryBot.build(:user, password: nil)
+    user.valid?
+    expect(user.errors[:password]).to include("can't be blank")
+  end
 
 end
