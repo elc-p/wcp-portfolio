@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'homes#top'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
 
   resources :users, only: [:show, :index, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
