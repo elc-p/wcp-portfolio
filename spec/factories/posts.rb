@@ -4,6 +4,6 @@ FactoryBot.define do
     cities { "千代田区" }
     body { "testtest" }
     user_id { "" }
-    post_image_id { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/sky.jpg'), 'image/jpg')}
+    post_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/sky.jpg'), 'image/jpg')}
   end
 end

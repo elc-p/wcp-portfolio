@@ -26,6 +26,7 @@ class Post < ApplicationRecord
     end
   end
   
+  validates :post_image, presence: true
   validates :prefecture, presence: true
   validates :cities, presence: true
   validates :body, presence: true, length: {maximum: 200}

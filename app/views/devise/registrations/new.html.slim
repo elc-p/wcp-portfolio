@@ -28,4 +28,5 @@ div.mx-auto.text-center
         = f.label :password_confirmation, "パスワード(確認用)", class: "col-sm-2"
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-3"
     = f.submit "Sign up"
-    == render "devise/shared/links"
+
+  == render "devise/shared/links"
