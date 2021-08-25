@@ -79,3 +79,4 @@ gem 'kaminari','~> 1.2.1'
 gem 'slim-rails'
 
 gem 'rails-i18n'
+gem 'dotenv-rails'
