@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'とりちゃんお便り'
+  default from: 'とりちゃん事務局 <torichan.test@gmail.com>'
   layout 'mailer'
   
 end
