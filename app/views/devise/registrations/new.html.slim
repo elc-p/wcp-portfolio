@@ -1,6 +1,6 @@
 div.mx-auto.text-center
   h2
-    | Sign up
+    = t('Sign up')
   = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
     == render "devise/shared/error_messages", resource: resource
     div.field.form-group.row
@@ -27,6 +27,6 @@ div.mx-auto.text-center
       div.col-12.mx-auto
         = f.label :password_confirmation, "パスワード(確認用)", class: "col-sm-2"
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-3"
-    = f.submit "Sign up"
+    = f.submit t('Sign up')
 
   == render "devise/shared/links"
