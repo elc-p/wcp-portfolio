@@ -55,3 +55,56 @@
   list-style: none;
  }
 }
+
+header {
+ background-image: url("sky.jpg");
+ // background-color: #B0C4DE;
+}
+
+.headnavi li a{
+    /*背景色の基点とするためrelativeを指定*/
+	position: relative;
+}
+
+.headnavi li a::after {
+	content: '';
+    /*絶対配置で線の位置を決める*/
+	position: absolute;
+	z-index: 0;
+	bottom: 0;
+	left: 0;
+	color: white;
+    /*背景の形状*/
+	width: 0;
+	height:100%;
+	background: #0481A2;
+    /*アニメーションの指定*/
+	transition:all .5s;
+	opacity: 0;/*はじめは透過0*/
+}
+
+/*現在地とhoverの設定*/
+.headnavi li.current a::after,
+.headnavi li a:hover::after {
+    /*背景の形状*/
+	width: 100%;/*横幅を伸ばす*/
+	opacity: 1;/*不透明に*/
+}
+// .headnavi {
+//   li.current a{
+//    color: #fff;
+//   }
+// }
+
+.headnavi a::hover {
+ z-index: 2;
+ color: white;
+}
+
+.headlink {
+ color: black;
+}
+
+// .headlink a::hover {
+//  text-decoration: none;
+// }
