@@ -5,7 +5,7 @@ div.container.px-5.px-sm-0
           | ユーザー一覧
 
         = link_to edit_user_path(@user)
-          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
+          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpg", size:"100x100", class: "rounded-circle"
 
         h5
           | 投稿フォーム
