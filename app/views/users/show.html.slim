@@ -3,11 +3,8 @@ div.container.px-5.px-sm-0
     div.col-md-3
       -if @user == current_user
         h2
-          | Myページ
-
-        = link_to edit_user_registration_path
-          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpg", size:"100x100", class: "rounded-circle"
           = t('My page')
+
       - else
         h2
           | #{@user.name}のページ
