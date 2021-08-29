@@ -42,7 +42,7 @@ html
         ul.navbar-nav.me-auto.headnavi.d-flex.align-items-center
           li.nav-item class=("current" if current_page?(root_path))
             = link_to root_path, class: "p-3 headlink toppage"
-              = image_tag "logo-2.png", class: "logo"
+              = image_tag asset_path("logo.jpg"), class: "logo"
 
           li.nav-item class=("current" if current_page?(new_user_registration_path))
             = link_to t('Sign up'), new_user_registration_path, class: "p-3 headlink"
