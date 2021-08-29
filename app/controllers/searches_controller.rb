@@ -1,44 +1,23 @@
 class SearchesController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def search
     words = params[:word]
     tags = []
     searchwords = []
     @result = []
     tags, searchwords = lookfor(words)
-    p "==================="
-    p "結果確認"
-    p @result
-    p "==================="
-    p "Prefecuture結果"
-    p lookbyPrefecture(searchwords)
-    p "==================="
-    p "City結果"
-    p lookbyCity(searchwords)
-    p "==================="
     if tags.empty?
       # @resutl.push(lookbyPrefecture(searchwords))
       # @result.push(lookbyCity(searchwords))
       unless lookbyPrefecture(searchwords) == []
         @result += lookbyPrefecture(searchwords)
-        p "==================="
-        p "結果確認1"
-        p @result
-        p "==================="
       end
       unless lookbyCity(searchwords) == []
         @result += lookbyCity(searchwords)
-        p "==================="
-        p "結果確認2"
-        p @result
-        p "==================="
       end
       unless lookbyPost(searchwords) == []
         @result += lookbyPost(searchwords)
-        p "==================="
-        p "結果確認3"
-        p @result
-        p "==================="
       end
     elsif searchwords.empty?
       unless lookbyTag(tags) == []
@@ -60,15 +39,6 @@ class SearchesController < ApplicationController
       
     end
     @result = @result.uniq
-    p "==================="
-    p "結果確認@result"
-    p @result
-    p "==================="
-    
-    p "==================="
-    p "結果確認@result.uniq"
-    p @result.uniq
-    p "==================="
 
 
   end

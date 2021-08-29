@@ -10,34 +10,44 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-  header
+  header class=("header-back-img" if user_signed_in?)
     - if user_signed_in?
       nav.navbar.navbar-expand-lg
-        ul.navbar-nav.mr-auto
+        ul.navbar-nav.mr-auto.d-flex.align-items-center
           li.nav-item.ml-3.mr-3
-            = link_to "Myページ", user_path(current_user)
+            = link_to t('My page'), user_path(current_user), class: "headlink"
           li.nav-item.mr-3
-            = link_to "地域検索", areas_path
+            = link_to t('Area search'), areas_path, class: "headlink"
           li.nav-item.mr-3
-            = link_to "ユーザー一覧", users_path
+            = link_to t('User list'), users_path, class: "headlink"
           li.nav-item.mr-3
-            = link_to "投稿一覧", posts_path
+            = link_to t('Post list'), posts_path, class: "headlink"
           li.nav-item.mr3
-            =link_to "ログアウト", destroy_user_session_path, method: :delete
-        ul.navbar-nav
+            =link_to t('Log out'), destroy_user_session_path, method: :delete, class: "headlink"
+        ul.navbar-nav.d-flex.align-items-center
+          li.nav-item
+            - @guide = "複数のキーワードで検索が出来ます。<br>\
+                        複数検索するときはスペースを空けて入力します。<br>\
+                        (例) banana lemon <br>\
+                        #をつけるとタグを検索します。<br>\
+                        (例) #hoge → hogeタグを検索"
+            span.fas.fa-question-circle#search-guide data-container="body" data-toggle="popover" data-html="true" data-placement="left" data-content="#{@guide}"
+
           li.nav-item
             = form_with url: searches_path, method: :get, class: "navbar-nav", local: true do |f|
               = f.text_field :word, placeholder: "\uF002", class: "fa seachicon"
 
     - else
       nav.navbar.navbar-expand-lg
-        ul.navbar-nav.me-auto
-          li.nav-item.ml-3
-            = link_to "Topページ", root_path
-          li.nav-item.ml-3
-            = link_to "新規登録", new_user_registration_path
-          li.nav-item.ml-3
-            =link_to "ログイン", new_user_session_path
+        ul.navbar-nav.me-auto.headnavi.d-flex.align-items-center
+          li.nav-item class=("current" if current_page?(root_path))
+            = link_to root_path, class: "p-3 headlink toppage"
+              = image_tag "logo-2.png", class: "logo"
+
+          li.nav-item class=("current" if current_page?(new_user_registration_path))
+            = link_to t('Sign up'), new_user_registration_path, class: "p-3 headlink"
+          li.nav-item class=("current" if current_page?(new_user_session_path))
+            =link_to t('Log in'), new_user_session_path, class: "p-3 headlink"
 
 
   body

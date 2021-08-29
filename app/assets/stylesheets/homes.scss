@@ -22,16 +22,16 @@
 }
 
 .aboutimage1 {
-  background-image: image-url("bird1.jpg");
+  background-image: imge-url("about1.jpg");
 }
 
 .aboutimage2 {
-  background-image: image-url("bird2.jpg");
+  background-image: image-url("about2.jpg");
 }
 
-.aboutimage3 {
-  background-image: image-url("bird3.jpg");
-}
+// .aboutimage3 {
+//   background-image: url(bird3.jpeg);
+// }
 
 #splash {
 /*fixedで全面に固定*/
@@ -77,4 +77,12 @@ opacity: 0;
 
 .link_height {
   padding-top: 50vh;
+}
+
+.about1 {
+  margin: 15% 15%;
+}
+
+.about2 {
+  margin: 10% 10%;
 }

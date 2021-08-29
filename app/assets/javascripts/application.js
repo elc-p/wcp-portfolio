@@ -65,3 +65,10 @@ $(window).on('load',function(){
 document.addEventListener("turbolinks:load", function() {
   $('img[usemap]').rwdImageMaps();
 });
+
+$(function() {
+  $('#search-guide').popover({
+    container: 'body',
+    trigger: 'hover'
+  });
+});

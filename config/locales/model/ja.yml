@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        password: "パスワード"
+        name: "ニックネーム"
+        prefecture: "都道府県"
+        cities: "市区町村"
