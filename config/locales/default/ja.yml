@@ -1,5 +1,16 @@
 ja:
   Sign up: "新規登録"
-  errors:
-    messages:
-      not_saved: "登録できませんでした。"
+  Log in: "ログイン"
+  My page: "マイページ"
+  Post form: "投稿フォーム"
+  Delete: "削除"
+  Area search: "地域検索"
+  User list: "ユーザー一覧"
+  Post list: "投稿一覧"
+  Log out: "ログアウト"
+  Picture: "画像"
+  Prefecture: "都道府県"
+  City: "市区町村"
+  Tag: "タグ"
+  Text: "本文"
+  Submit: "投稿"

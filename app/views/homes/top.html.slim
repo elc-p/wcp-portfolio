@@ -5,11 +5,26 @@ div#splash
 section.top-section data-section-name="section1"
   div.top.top-back
     div.d-flex.align-items-center.justify-content-center.link_height
-      = link_to "新規登録", new_user_registration_path, class: "btn btn-info btn-lg"
+        h1
+          | ようこそ Torichanへ
+
+        = link_to "新規登録", new_user_registration_path, class: "btn btn-info btn-lg"
 
 section.top-section data-section-name="section2"
   div#about.about-back
     div#aboutimages
       div.aboutimage1
+        p.about1
+          | 鳥の写真を共有するサイトです
+          
       div.aboutimage2
-      div.aboutimage3
+        p.about2
+          | 知らない鳥に出会った時には情報を共有することができます。
+          
+          br
+          
+          | きっと教えてくれる人がいます。
+          
+          br
+          
+          | また、地域から投稿を検索することができます。

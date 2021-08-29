@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
   root 'homes#top'
 
   devise_for :users, controllers: {
@@ -31,5 +31,9 @@ Rails.application.routes.draw do
   end
   
   get 'searches' => 'searches#search'
+  
+  
+    
+  end
 
 end

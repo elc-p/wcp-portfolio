@@ -1,22 +1,22 @@
 = form_with model:post, local: true do |f|
   h4
-    | 画像
+    = t('Picture')
   = f.attachment_field :post_image
   
   h4
-    | 都道府県
+    = t('Prefecture')
   = f.text_field :prefecture, value: user.prefecture
   
   h4
-    | 市区町村
+    = t('City')
   = f.text_field :cities, value: user.cities
   
   h4
-    | タグ
+    = t('Tag')
   = f.text_field :category
   
   h4
-    | 説明
+    = t('Text')
   = f.text_area :body
   br
-  = f.submit "投稿"
+  = f.submit t('Submit')

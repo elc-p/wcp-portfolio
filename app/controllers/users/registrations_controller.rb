@@ -6,7 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def create
     super
-    UserMailer.welcome_email(params[:user][:email], params[:user][:name]).deliver
+    if resource.persisted?
+      UserMailer.welcome_email(params[:user][:email], params[:user][:name]).deliver
+    end
   end
 
   # GET /resource/sign_up

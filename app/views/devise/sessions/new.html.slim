@@ -1,6 +1,6 @@
  div.mx-auto.text-center
   h2
-    | Log in
+    = t('Log in')
 
   = form_with model: @user, url: user_session_path, local: true do |f|
     div.field.form-group.row
@@ -19,6 +19,6 @@
               = f.label :remember_me
 
     div.actions
-      = f.submit "Log in"
+      = f.submit t('Log in')
 
   == render "devise/shared/links"
