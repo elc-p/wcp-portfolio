@@ -5,7 +5,7 @@ div.container.px-5.px-sm-0
           | ユーザー一覧
 
         = link_to edit_user_path(@user)
-          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpeg", size:"100x100", class: "rounded-circle"
+          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpg", size:"100x100", class: "rounded-circle"
 
         h5
           | 投稿フォーム
@@ -17,7 +17,7 @@ div.container.px-5.px-sm-0
             div.col-md-4
               div.card.user-show-img.h-100 id='user_#{ user.id }'
                 = link_to user_path(user)
-                  = attachment_image_tag user, :user_image,  fallback: "no_image_square.jpeg", class: "card-img user-img-h"
+                  = attachment_image_tag user, :user_image,  fallback: "no_image_square.jpg", class: "card-img user-img-h"
                 span.user-follow
                   - if user.id == current_user.id
                   - else

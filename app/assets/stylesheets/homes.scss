@@ -8,7 +8,7 @@
 }
 
 .top-back {
-  background-image: url(sky.jpg);
+  background-image: image-url("sky.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -22,11 +22,11 @@
 }
 
 .aboutimage1 {
-  background-image: url(about1.jpg);
+  background-image: image-url("about1.jpg");
 }
 
 .aboutimage2 {
-  background-image: url(about2.jpg);
+  background-image: image-url("about2.jpg");
 }
 
 // .aboutimage3 {
