@@ -36,6 +36,8 @@ html
           li.nav-item
             = form_with url: searches_path, method: :get, class: "navbar-nav", local: true do |f|
               = f.text_field :word, placeholder: "\uF002", class: "fa seachicon"
+          li.nav-item.pl-2
+            == render 'layouts/language'
 
     - else
       nav.navbar.navbar-expand-lg
@@ -48,6 +50,8 @@ html
             = link_to t('Sign up'), new_user_registration_path, class: "p-3 headlink"
           li.nav-item class=("current" if current_page?(new_user_session_path))
             =link_to t('Log in'), new_user_session_path, class: "p-3 headlink"
+          li.nav-item
+            == render 'layouts/language'
 
 
   body

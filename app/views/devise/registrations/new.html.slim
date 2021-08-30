@@ -5,27 +5,27 @@ div.mx-auto.my-auto.text-center
     == render "devise/shared/error_messages", resource: resource
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :name, "ニックネーム", class: "col-sm-2"
+        = f.label :name, class: "col-sm-2"
         = f.text_field :name, autofocus: true, autocomplete: "name", class: "col-sm-3"
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :prefecture, "都道府県", class: "col-sm-2"
+        = f.label :prefecture, class: "col-sm-2"
         = f.text_field :prefecture, autofocus: true, autocomplete: "prefecture", class: "col-sm-3"
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :cities, "市区町村", class: "col-sm-2"
+        = f.label :cities, class: "col-sm-2"
         = f.text_field :cities, autofocus: true, autocomplete: "cities", class: "col-sm-3"
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :email, "メールアドレス", class: "col-sm-2"
+        = f.label :email, class: "col-sm-2"
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-3"
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :password, "パスワード", class: "col-sm-2"
+        = f.label :password, class: "col-sm-2"
         = f.password_field :password, autocomplete: "new-password", class: "col-sm-3"
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :password_confirmation, "パスワード(確認用)", class: "col-sm-2"
+        = f.label :password_confirmation, class: "col-sm-2"
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "col-sm-3"
     = f.submit t('Sign up')
 
