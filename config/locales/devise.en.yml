@@ -27,8 +27,6 @@ en:
         unconfirmed_email: "Unconfirmed Email"
         unlock_token: "Unlock token"
         updated_at: "Update at"
-    models:
-      user: "user
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
