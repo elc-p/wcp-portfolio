@@ -5,12 +5,12 @@
   = form_with model: @user, url: user_session_path, local: true do |f|
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :email, "メールアドレス", class: "col-sm-2"
+        = f.label :email, class: "col-sm-2"
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-3"
 
     div.field.form-group.row
       div.col-12.mx-auto
-        = f.label :password, "パスワード", class: "col-sm-2"
+        = f.label :password, class: "col-sm-2"
         = f.password_field :password, autocomplete: "current-password", class: "col-sm-3"
 
         - if devise_mapping.rememberable?
