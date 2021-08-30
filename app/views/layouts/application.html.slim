@@ -36,6 +36,8 @@ html
           li.nav-item
             = form_with url: searches_path, method: :get, class: "navbar-nav", local: true do |f|
               = f.text_field :word, placeholder: "\uF002", class: "fa seachicon"
+          li.nav-item.pl-2
+            == render 'layouts/language'
 
     - else
       nav.navbar.navbar-expand-lg
