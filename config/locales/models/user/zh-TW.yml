@@ -1,0 +1,11 @@
+zh-TW:
+  activerecord:
+    models:
+      user: "用户"
+    attributes:
+      user:
+        email: "电子邮件地址"
+        password: "密码"
+        name: "昵称"
+        prefecture: "都道府县"
+        cities: "直辖市"
