@@ -4,7 +4,7 @@ div.container.px-5.px-sm-0
     div.col-md-6
       = form_with model: @user, local: true do |f|
           div.card
-            = attachment_image_tag @user, :user_image, fallback: "no_image_square.jpeg", size:"100x100", class: "card-img edit-user-img"
+            = attachment_image_tag @user, :user_image, fallback: asset_path("no_image_square.jpg"), size:"100x100", class: "card-img edit-user-img"
           div.card-body
             div.card-text
               div.row
