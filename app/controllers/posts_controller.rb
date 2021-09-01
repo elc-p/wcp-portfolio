@@ -4,12 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    p "==================="
-    p "結果確認"
-    p @posts
-    p "==================="
-
-
     @post = Post.new
     @user = current_user
   end
@@ -23,9 +17,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    # byebug
     tag_list = params[:post][:category].split(nil)
     if @post.save
       @post.save_tag(@post, tag_list)
+      tag_api = Vision.get_image_data(@post.post_image)
+      @post.save_tag(@post, tag_api)
       # tag_list.each do |tag_name|
       #   tag = Tag.find_by(category: tag_name)
       #   Tagging.create(post_id: @post.id, tag_id: tag.id)
