@@ -15,14 +15,24 @@ class Post < ApplicationRecord
 
   def save_tag(post, sent_tags)
     sent_tags.each do |tag|
-      unless Tag.find_by(category: tag)
-        Tag.create(category: tag)
-        new_tag = Tag.find_by(category: tag)
-        Tagging.create(post_id: post.id, tag_id: new_tag.id)
-      else
-        exist_tag = Tag.find_by(category: tag)
-        Tagging.create(post_id: post.id, tag_id: exist_tag.id)
-      end
+      get_tag = Tag.find_or_create_by(category: tag)
+      Tagging.create(post_id: post.id, tag_id: get_tag.id)
+      # unless Tag.find_by(category: tag)
+      #   Tag.create(category: tag)
+      #   new_tag = Tag.find_by(category: tag)
+      #   Tagging.create(post_id: post.id, tag_id: new_tag.id)
+      # else
+      #   exist_tag = Tag.find_by(category: tag)
+      #   Tagging.create(post_id: post.id, tag_id: exist_tag.id)
+      # end
+    end
+  end
+  
+  def save_tag_api(post, sent_tags)
+    sent_tags.each do |tag|
+      tag = Translation.get_translate_data(tag)
+      get_tag = Tag.find_or_create_by(category: tag)
+      Tagging.create(post_id: post.id, tag_id: get_tag.id)
     end
   end
   

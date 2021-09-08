@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     if @post.save
       @post.save_tag(@post, tag_list)
       tag_api = Vision.get_image_data(@post.post_image)
-      @post.save_tag(@post, tag_api)
+      @post.save_tag_api(@post, tag_api)
       # tag_list.each do |tag_name|
       #   tag = Tag.find_by(category: tag_name)
       #   Tagging.create(post_id: @post.id, tag_id: tag.id)
