@@ -13,8 +13,11 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-  def save_tag(post, sent_tags)
+  def save_tag(post, sent_tags, flag)
     sent_tags.each do |tag|
+      if flag == 1
+        tag = Translation.get_translate_data(tag)
+      end
       get_tag = Tag.find_or_create_by(category: tag)
       Tagging.create(post_id: post.id, tag_id: get_tag.id)
       # unless Tag.find_by(category: tag)
@@ -28,13 +31,13 @@ class Post < ApplicationRecord
     end
   end
   
-  def save_tag_api(post, sent_tags)
-    sent_tags.each do |tag|
-      tag = Translation.get_translate_data(tag)
-      get_tag = Tag.find_or_create_by(category: tag)
-      Tagging.create(post_id: post.id, tag_id: get_tag.id)
-    end
-  end
+  # def save_tag_api(post, sent_tags)
+  #   sent_tags.each do |tag|
+  #     tag = Translation.get_translate_data(tag)
+  #     get_tag = Tag.find_or_create_by(category: tag)
+  #     Tagging.create(post_id: post.id, tag_id: get_tag.id)
+  #   end
+  # end
   
   validates :post_image, presence: true
   validates :prefecture, presence: true

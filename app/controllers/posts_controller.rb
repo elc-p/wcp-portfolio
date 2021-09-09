@@ -20,9 +20,9 @@ class PostsController < ApplicationController
     # byebug
     tag_list = params[:post][:category].split(nil)
     if @post.save
-      @post.save_tag(@post, tag_list)
+      @post.save_tag(@post, tag_list, 0)
       tag_api = Vision.get_image_data(@post.post_image)
-      @post.save_tag_api(@post, tag_api)
+      @post.save_tag(@post, tag_api, 1)
       # tag_list.each do |tag_name|
       #   tag = Tag.find_by(category: tag_name)
       #   Tagging.create(post_id: @post.id, tag_id: tag.id)
