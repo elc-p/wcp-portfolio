@@ -29,6 +29,15 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && self.status == false
   end
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = "ゲスト"
+      user.prefecture = "東京都"
+      user.cities = "千代田区"
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
 
 
   attachment :user_image, destroy: false

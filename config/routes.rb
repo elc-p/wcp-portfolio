@@ -5,6 +5,10 @@ scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
   devise_for :users, controllers: {
     registrations: "users/registrations"
   }
+  
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
 
   resources :users, only: [:show, :index, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
