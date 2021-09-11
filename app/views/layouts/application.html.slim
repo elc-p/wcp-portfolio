@@ -51,6 +51,8 @@ html
           li.nav-item class=("current" if current_page?(new_user_session_path))
             =link_to t('Log in'), new_user_session_path, class: "p-3 headlink"
           li.nav-item
+            = link_to 'ゲストログイン', users_guest_sign_in_path, method: :post
+          li.nav-item
             == render 'layouts/language'
 
 
