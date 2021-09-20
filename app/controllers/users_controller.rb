@@ -26,8 +26,11 @@ class UsersController < ApplicationController
 
   def withdrawal
     user = User.find(params[:user_id])
-    user.update(status: true)
-    reset_session
+    unless user.email == "guest@example.com"
+      user.update(status: true)
+      reset_session
+    end
+
     redirect_to root_path
   end
 
