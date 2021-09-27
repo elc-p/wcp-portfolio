@@ -12,7 +12,7 @@ html
 
   header class=("header-back-img" if user_signed_in?)
     - if user_signed_in?
-      nav.navbar.navbar-expand-lg.p-0
+      nav.navbar.navbar-expand-sm.p-0
         ul.navbar-nav.mr-auto.d-flex.align-items-center
           li.nav-item.ml-3.mr-3
             = link_to t('My page'), user_path(current_user), class: "headlink"
@@ -40,7 +40,7 @@ html
             == render 'layouts/language'
 
     - else
-      nav.navbar.navbar-expand-lg.p-0
+      nav.navbar.navbar-expand-sm.p-0
         ul.navbar-nav.mr-auto.d-flex.align-items-center
           li.nav-item class=("current" if current_page?(root_path))
             = link_to root_path(anchor: 'section1'), class: "p-3 headlink toppage"
