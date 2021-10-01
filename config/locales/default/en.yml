@@ -47,6 +47,8 @@ en:
   Tag: "Tag"
   Text: "Text"
   Submit: "Submit"
+  Follow: "Follow"
+  UnFollow: "UnFollow"
   Forgot your password?: "Forgot your password?"
   nopage: "'s page "
   follow number: "follow "

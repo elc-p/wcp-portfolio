@@ -17,7 +17,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    # byebug
     tag_list = params[:post][:category].split(nil)
     if @post.save
       @post.save_tag(@post, tag_list, 0)
