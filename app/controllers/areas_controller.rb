@@ -12,6 +12,8 @@ class AreasController < ApplicationController
   def search
     city = City.find(params[:id])
     @posts = Post.where(cities: city.name)
+    @user = current_user
+    @post = Post.new
   end
   
 end

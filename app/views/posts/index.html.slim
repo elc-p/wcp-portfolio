@@ -17,6 +17,6 @@ div.container.px-5.px-sm-0
             div.col-md-4
               div.card.post-index.h-100
                 = link_to post_path(post), class: "h-100"
-                  = attachment_image_tag post, :post_image, class: "card-img h-100"
+                  = attachment_image_tag post, :post_image, :fill, 300, 200, class: "card-img h-100"
                 span id='favorite-#{post.id}'
                   == render "favorites/favorite", post: post
