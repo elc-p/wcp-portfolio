@@ -7,10 +7,15 @@ div.container.px-5.px-sm-0
 
       - else
         h2
-          | #{@user.name}のページ
+          | #{@user.name}
+          = t('nopage')
 
-      = link_to edit_user_registration_path
+      - if @user == current_user
+        = link_to edit_user_registration_path
+          = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpg", size:"100x100", class: "rounded-circle"
+      - else
         = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpg", size:"100x100", class: "rounded-circle"
+        
       - if @user == current_user
           h5
             = t('Post form')
@@ -20,7 +25,7 @@ div.container.px-5.px-sm-0
       - @posts.each do |post|
         div.card.user-show-img
           = link_to post_path(post)
-            = attachment_image_tag post, :post_image,  class: "card-img"
+            = attachment_image_tag post, :post_image, :fill, 300, 200,  class: "card-img"
           div.dropdown.user-show-del
             span class="fas fa-ellipsis-h"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"
             ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"

@@ -2,13 +2,13 @@ div.container.px-5.px-sm-0
   div.row
     div.col-md-3
         h2
-          | ユーザー一覧
+          = t('User list')
 
-        = link_to edit_user_path(@user)
+        = link_to edit_user_registration_path
           = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpg", size:"100x100", class: "rounded-circle"
 
         h5
-          | 投稿フォーム
+          = t('Post form')
         == render 'posts/form', post: @post, user: @user
 
     div.col-md-9
@@ -28,10 +28,12 @@ div.container.px-5.px-sm-0
                 span.card-text
                   = link_to user_followings_path(user.id)
                     p id='user_#{ user.id }_follow'
-                      | フォロー数#{user.followings.count}
+                      = t('follow number')
+                      | #{user.followings.count}
 
                   = link_to user_followers_path(user.id)
                     p id='user_#{ user.id }_follower'
-                      | フォロワー数#{user.followers.count}
+                      = t('followed number')
+                      | #{user.followers.count}
 
 

@@ -7,6 +7,7 @@ ja:
   Area search: "地域検索"
   User list: "ユーザー一覧"
   Post list: "投稿一覧"
+  Post detail: "投稿詳細 "
   Log out: "ログアウト"
   Picture: "画像"
   Prefecture: "都道府県"
@@ -15,3 +16,8 @@ ja:
   Text: "本文"
   Submit: "投稿"
   Forgot your password?: "パスワードをお忘れですか"
+  nopage: "のページ"
+  follow number: "フォロー数 "
+  followed number: "フォロワー数 "
+  Area search result: "地域検索結果 "
+  

@@ -2,7 +2,7 @@ div.container.px-5.px-sm-0
   div.row
     div.col-md-3
         h2
-          | 投稿詳細
+          = t('Post detail')
 
         = link_to edit_user_path(@user)
           = attachment_image_tag @user, :user_image, :fill, 100, 100, fallback: "no_image_square.jpg", size:"100x100", class: "rounded-circle"
@@ -17,7 +17,7 @@ div.container.px-5.px-sm-0
              span class="fas fa-ellipsis-h"  id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"
              ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                li
-                 = link_to "削除", post_path(@post.id), method: :delete, class: "dropdown-item"
+                 = link_to t('Delete'), post_path(@post.id), method: :delete, class: "dropdown-item"
         span.card-title.user-span
           - @post.taggings.each do |tag|
               = link_to tag_posts_path(tag_id: tag.tag.id), class: "btn btn-sm btn-secondary user-tag-link"
